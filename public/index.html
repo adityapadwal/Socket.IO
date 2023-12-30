@@ -11,9 +11,7 @@
     <input type="text" id="message" placeholder="Enter msg...">
     <button id="sendBtn">Send Message</button>
 
-    <div id="messages">
-
-    </div>
+    <div id="messages"></div>
 
     <!-- Importing client side Js library for socket.io -->
     <script src="/socket.io/socket.io.js"></script>
@@ -25,7 +23,7 @@
         const messageInput = document.getElementById("message");
         const allMessages = document.getElementById("messages");
 
-        socket.on('message', (message) => {
+        socket.on('server-message', (message) => {
             const para = document.createElement('p');
             para.innerText = message;
             allMessages.appendChild(para);

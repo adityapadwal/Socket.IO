@@ -15,12 +15,12 @@ const io = new Server(server);
 // Socket.io
 // Establishing a socket.io connection
 io.on("connection", (socket) => {
-    console.log("Server Web sockets connection established!");
+    console.log("Server Web sockets connection established! ");
     // Receiving msgs from the client
     socket.on("client-message", (message) => {
         console.log("A new client message has arrived, ", message);
         // After receiving msg from the client, server sends this msgs to all the clients
-        io.emit('message', message);
+        io.emit('server-message', message);
     })
 })
 
@@ -34,5 +34,5 @@ app.get("/", (req, res) => {
 
 // Listening on port 9000
 server.listen(9000, () => {
-    console.log("Server started at port 8000");
+    console.log("Server started at port 9000");
 });
