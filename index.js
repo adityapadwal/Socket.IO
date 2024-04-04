@@ -18,8 +18,9 @@ io.on("connection", (socket) => {
     console.log("Server Web sockets connection established! ");
     // Receiving msgs from the client
     socket.on("client-message", (message) => {
-        console.log("A new client message has arrived, ", message);
+        console.log("Server: Receicved following message from client ", message);
         // After receiving msg from the client, server sends this msgs to all the clients
+        console.log("Server: Sending following message to all the clients ", message);
         io.emit('server-message', message);
     })
 })

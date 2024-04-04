@@ -24,6 +24,7 @@
         const allMessages = document.getElementById("messages");
 
         socket.on('server-message', (message) => {
+            console.log("Client: Received following message from the server ", message);
             const para = document.createElement('p');
             para.innerText = message;
             allMessages.appendChild(para);
@@ -35,6 +36,7 @@
 
             // sending the message to the server
             // emit means to send
+            console.log("Client: Sending following message to server ", message);
             socket.emit('client-message', message);
         });
 
